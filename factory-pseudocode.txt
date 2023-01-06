@@ -4,13 +4,28 @@ add a list of engineers, list of machines, and specify which engineers are licen
 An engineer can be licensed to repair many machines, a machine can have many engineers licensed to repair it
 
 User Stories
+// Index showing all Engineers and Index showing all Machines
 As the factory manager, I need to be able to see a list of all engineers, and I need to be able to see a list of all machines.
-As the factory manager, I need to be able to select a engineer, see their details, and see a list of all machines that engineer is licensed to repair. I also need to be able to select a machine, see its details, and see a list of all engineers licensed to repair it.
+
+// Details page for each Engineer object and Details page for each Machines object
+As the factory manager, I need to be able to select an engineer and see their details, I also need to be able to select a machine, see its details
+
+// AddEngineer and AddMachine GET and POST Actions
+// display machines attached to an individual engineer's details page, display engineers attached to an individual machine's details page
+see a list of all machines that engineer is licensed to repair, and see a list of all engineers licensed to repair it.
+
+// Create page for Engineers and Machines
 As the factory manager, I need to add new engineers to our system when they are hired. I also need to add new machines to our system when they are installed.
+
+// Add model validation with data annotations to Engineer.cs and Machine.cs entity properties
+// update database 
 I should not be able to create an engineer or a machine if the form's fields are empty or contain invalid values.
-As the factory manager, I should be able to add new machines even if no engineers are employed. I should also be able to add new engineers even if no machines are installed.
-As the factory manager, I need to be able to add or remove machines that a specific engineer is licensed to repair. I also need to be able to modify this relationship from the other side, and add or remove engineers from a specific machine.
+
+// [HttpPost] DeleteJoin() actions for EngineersContoller and MachinesController to remove JoinEntity many-to-many relationship
+remove machines that a specific engineer is licensed to repair or remove engineers from a specific machine.
+
 I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
+
 When I access the application, I should see a splash page that lists all engineers and machines.
 
 
@@ -34,49 +49,115 @@ When I access the application, I should see a splash page that lists all enginee
 // create controller and corresponding views
 > create HomeController and Views:
 	create Index() action
-		create Index.cshtml /w link to "view all cuisines"
+		create Index.cshtml /w "Welcome to Dr. Sillystringz's Facotry 
+			<h4>Engineers</h4> <h4>Machines</4> place holders
 
-> create StylistsController and Views:
+> create EngineersController.cs and Views:
 	create Index() action
-		create Index.cshtml /w link "Add new stylist"
-
+		create Index.cshtml 
+		
+	confirm view
 
 	create Create() action
 		create Create.cshtml /w form
 
 	create [HttpPost] Create() action
+	
+	confirm index view shows created object
 
 	create Details() action
 		create Details.cshtml 
+	
+	confirm index shows object details
 
-NON-MVP:
-	create Delete() action
-		create Delete.cshtml
-
-	create Edit() action
-		create Edit.cshtml
-
-	create [HttpPost] Edit() action
-
-
-
-> create ClientsController and Views
+> create MachinesController.cs and Views
+	create Index() action
+		create Index.cshtml 
+		
+	confirm view
 
 	create Create() action
 		create Create.cshtml /w form
 
 	create [HttpPost] Create() action
-
-NON-MVP:
-	create Index() action
-		create Index.cshtml
+	
+	confirm index view shows created object
 
 	create Details() action
-		create Details.cshtml /w ?
-
-	create Delete() action
-
+		create Details.cshtml 
+	
+	confirm index shows object details
+	
+> add to EngineersController.cs and Views:
+	create AddMachine() action
+		create AddMachine.cshtml form
+		
+	create [HttpPost] AddMachine() action
+	
+	confirm adding machine to engineer and seeing on engineers details page
+	
+> add to MachinesController.cs and Views:
+	create AddEngineer() action
+		create AddEngineer.cshtml form
+		
+	create [HttpPost] AddEngineer() action
+	
+	confirm adding engineer to machine and seeing on a machines details page
+	
+> add model validation with data annotations for Name entity property in Engineer.cs
+	add model validation with data annotations for Name entity property in Machine.cs
+		confirm working by entering blank name for both
+		
+> add to EngineersController
+	
 	create Edit() action
-		create Edit.cshtml
+		create Edit.cshtml form
+			confirm form view is working
 
 	create [HttpPost] Edit() action
+		confirm form succesfully updates
+
+	create Delete() action
+		create Delete.cshtml confirmation page
+			confirm confirmation page view works
+		
+	create [HttpPost, ActioName("Delete")] Delete() action
+		confirm deletion of an Engineer
+	
+	create [HttpPost] DeleteJoin() action
+		add delete button for every Machine on an individual Engineer's Details page
+	
+> add to MachinesController
+	
+	create Edit() action
+		create Edit.cshtml form
+			confirm form view is working
+
+	create [HttpPost] Edit() action
+		confirm form succesfully updates
+
+	create Delete() action
+		create Delete.cshtml confirmation page
+			confirm confirmation page view works
+		
+	create [HttpPost, ActioName("Delete")] Delete() action
+		confirm deletion of a Machine
+	
+	create [HttpPost] DeleteJoin() action
+		add delete button for every Engineer on an individual Machine's Details page
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
