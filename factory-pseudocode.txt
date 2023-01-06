@@ -43,7 +43,7 @@ When I access the application, I should see a splash page that lists all enginee
 > create FactoryContext.cs /w DbSet<Engineer> Engineers, DbSet<Machine> Machines, DbSet<EngineerMachine> JoinEntities
 
 // create entities
-> create Engineer.cs entity /w properties MachineId, Name, List<EngineerMachine> JoinEntities  
+> create Engineer.cs entity /w properties EngineerId, Name, List<EngineerMachine> JoinEntities  
 	
 > create Machine.cs entity /w properties MachineId, Name, List<EngineerMachine> JoinEntities  
 
