@@ -37,6 +37,7 @@ public class EngineersController : Controller
 
   public ActionResult Details(int id)
   {
+    ViewBag.Machines = _db.Machines.ToList();
     Engineer thisEngineer = _db.Engineers
       .Include(engineer => engineer.JoinEntities)
       .ThenInclude(join => join.Machine)
