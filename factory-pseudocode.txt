@@ -56,6 +56,7 @@ When I access the application, I should see a splash page that lists all enginee
 	create Index() action
 		create Index.cshtml /w "Welcome to Dr. Sillystringz's Facotry 
 			<h4>Engineers</h4> <h4>Machines</4> place holders
+				confirm view
 
 > create EngineersController.cs and Views:
 	create Index() action
