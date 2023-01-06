@@ -31,6 +31,15 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Add an Machine", "AddMachine", new { id = Model.EngineerId })</p>
+@if (@Model.JoinEntities.Machine == 0)
+{
+  <button type="button" class="btn btn-lg btn-primary" disabled="">No machines to assign</button>
+  <a href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Disabled link button</a>
+}
+else
+{
+  @Html.ActionLink("Add an Machine", "AddMachine", new { id = Model.EngineerId }, new { @class="btn btn-primary btn-lg active", @role="button", @aria-pressed="true" })
+}
+
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
