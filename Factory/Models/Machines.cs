@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace Factory.Models;
 
-public class Engineer
+public class Machine
 {
-  public int EngineerId { get; set; }
-  public string EngineerName { get; set; }
+  public int MachineId { get; set; }
+  public string MachineName { get; set; }
   public List<EngineerMachine> JoinEntities { get; set; }
 }
