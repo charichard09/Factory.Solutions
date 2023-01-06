@@ -17,16 +17,21 @@ see a list of all machines that engineer is licensed to repair, and see a list o
 // Create page for Engineers and Machines
 As the factory manager, I need to add new engineers to our system when they are hired. I also need to add new machines to our system when they are installed.
 
-// Add model validation with data annotations to Engineer.cs and Machine.cs entity properties
+// Add model validation with data annotation [Required(ErrorMessage = "string")] to Engineer.cs and Machine.cs entity properties
 // update database 
 I should not be able to create an engineer or a machine if the form's fields are empty or contain invalid values.
 
 // [HttpPost] DeleteJoin() actions for EngineersContoller and MachinesController to remove JoinEntity many-to-many relationship
 remove machines that a specific engineer is licensed to repair or remove engineers from a specific machine.
 
+// Add conditional to Details.cshtml for Engineer Views checking IF @Model.JoinEntities.Machines == 0, display disabled button "No machines to assign", ELSE display active button "assign machine"  
+// for Machine Views IF @Model.JoinEntities.Engineers == 0, display disabled button "No engineers to assign", ELSE display active button "assign machine"  
 I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
 
+// display all Engineers and all Machines on Homepage
 When I access the application, I should see a splash page that lists all engineers and machines.
+
+
 
 
 
@@ -96,6 +101,8 @@ When I access the application, I should see a splash page that lists all enginee
 	
 	confirm adding machine to engineer and seeing on engineers details page
 	
+> add conditional to Details.cshtml for Engineer Views checking IF @Model.JoinEntities.Machines == 0, display disabled button "No machines to assign", ELSE display active button "assign machine"  
+	
 > add to MachinesController.cs and Views:
 	create AddEngineer() action
 		create AddEngineer.cshtml form
@@ -104,9 +111,13 @@ When I access the application, I should see a splash page that lists all enginee
 	
 	confirm adding engineer to machine and seeing on a machines details page
 	
-> add model validation with data annotations for Name entity property in Engineer.cs
-	add model validation with data annotations for Name entity property in Machine.cs
-		confirm working by entering blank name for both
+> add conditional to Details.cshtml for Machines Views checking IF @Model.JoinEntities.Engineers == 0, display disabled button "No engineers to assign", ELSE display active button "assign engineer" 
+	
+> add model validation with data annotation [Required(ErrorMessage = "string")] for Name entity property in Engineer.cs
+	add HtmlHelper method ValidationMessageFor to Engineers/Create
+		add model validation with data annotation [Required(ErrorMessage = "string")] for Name entity property in Machine.cs
+			add HtmlHelper method ValidationMessageFor to Machines/Create
+				confirm working by entering blank name for both
 		
 > add to EngineersController
 	
@@ -126,6 +137,7 @@ When I access the application, I should see a splash page that lists all enginee
 	
 	create [HttpPost] DeleteJoin() action
 		add delete button for every Machine on an individual Engineer's Details page
+			confirm deletion of a machine attached to an engineer
 	
 > add to MachinesController
 	
@@ -145,14 +157,10 @@ When I access the application, I should see a splash page that lists all enginee
 	
 	create [HttpPost] DeleteJoin() action
 		add delete button for every Engineer on an individual Machine's Details page
-	
-	
-	
-	
-	
-	
-	
-	
+			confirm deletion of an engineer attached to a machine
+			
+add to HomeController.cs Index() controller DbSet Machines and Engineers in a Dictionary into View
+		finish adding to Machines and Engineers tags to display all Machines and Engineers as ActionLinks
 	
 	
 	
