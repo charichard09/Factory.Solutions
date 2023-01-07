@@ -108,4 +108,13 @@ public class EngineersController : Controller
     _db.SaveChanges();
     return RedirectToAction("Index");
   }
+
+  [HttpPost]
+  public ActionResult DeleteMachine(int joinId)
+  {
+    EngineerMachine joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+    _db.EngineerMachines.Remove(joinEntry);
+    _db.SaveChanges();
+    return RedirectToAction("Details", new { id = joinEntry.EngineerId });
+  }
 }
