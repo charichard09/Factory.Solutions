@@ -7,7 +7,7 @@
 
 <h2>Engineer Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h3>
+<h3>@Html.DisplayName("Engineer Name"): @Html.DisplayFor(model => model.EngineerName)</h3>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -19,13 +19,13 @@ else
   <ul>
     @foreach (EngineerMachine join in Model.JoinEntities)
     {
-      <li>
-        @join.Machine.MachineName
-      </li>
       @using (Html.BeginForm("DeleteMachine", "Engineers"))
       {
-        @Html.Hidden("joinId", @join.EngineerMachineId)
-        <input type="submit" value="Delete" />
+        <li>
+          @join.Machine.MachineName
+          @Html.Hidden("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Delete" />
+        </li>
       }
     }
   </ul>
@@ -33,12 +33,20 @@ else
 
 @if (@ViewBag.Machines.Count == 0)
 {
-  <button type="button" class="btn btn-lg btn-primary" disabled="">No machines to assign</button>
+  <a href="">
+    <button type="button" disabled="">No machines to assign</button>
+  </a>
 }
 else
 {
-  <button class="btn btn-primary btn-lg active" type="button" aria-pressed="true">@Html.ActionLink("Assign a Machine", "AddMachine", new { id = Model.EngineerId })</button>
+  <a href='@Url.Action("AddMachine", new { id = Model.EngineerId })'>
+    <button type="button">Assign a Machine</button>
+  </a>
 }
 
-<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
+<a href='@Url.Action("Delete", new { id = Model.EngineerId })'>
+    <button type="button">Delete Engineer</button>
+</a>
+<a href='@Url.Action("Edit", new { id = Model.EngineerId })'>
+    <button type="button">Edit Engineer</button>
+</a>

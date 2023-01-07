@@ -1,8 +1,8 @@
-# _Eau Claire's Salon_
+# _Dr. Sillystringz's Factory_
 
 #### By _**Richard Cha**_
 
-#### _This web app adds stylists and their clients to a database._
+#### _This web app allows adding of new employees and machines, and assigning employees machines and machines employees_
 
 ## Technologies Used
 
@@ -17,7 +17,8 @@
 
 ## Description
 
-_This web application adds hair stylist employees and their specialties to a database through a form. It then allows adding clients through a form to each stylist and saving the information to a database. By clicking on the Stylists or Clients links on the header, a user can view all added Stylists and Clients. A user can also search for a stylist through the search bar on the home page._
+_This web application gives CRUD functionality to both employees and machines while updating to a database. It will then display all employees and machines on the homepage. It can also assign _
+_each employee a machine and a machine an employee through a many to many relationship._
 
 ## Setup/Installation Requirements
 
@@ -26,10 +27,7 @@ _This web application adds hair stylist employees and their specialties to a dat
 * _Setup MySql Workbench:_
 * [OS X and Windows Instructions](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)
 * _Clone this repo to a local directory_
-* _After following the MySqlWorkbench installation instructions, open MySql Workbench and select the Local 3306 server. Then select the "Administration" tab and click on "Data Import/Restore"_
-* _In Import Options select "Import from Self-Contained File" and click the "..." button to navigate to the file "richard_cha.sql" in the top level of this repo. Click "Start Import"_
-* _Confirm the import was successful by clicking on the "Schemas" tab and seeing the richard_cha schema listed._ 
-* _Navigate to the local directory (YourPath/HairSalon.Solution) and create a new file "appsettings.json" 
+* _Navigate to the local directory (YourPath/Factory.Solution/Factory) and create a new file "appsettings.json" 
 * _Open this file with Visual Studio Code 2019 and add:
 ```
 {
@@ -38,12 +36,15 @@ _This web application adds hair stylist employees and their specialties to a dat
     }
 } 
 ```
-replace [YOUR-USERNAME-HERE] and [YOUR-PASSWORD-HERE] with the your own user and password values._
+replace [YOUR-USERNAME-HERE] and [YOUR-PASSWORD-HERE] with the your own user and password values, and [YOUR-DB-NAME] with any name you'd like to call the database, i.e. "factory"_
 
-* _Using Terminal on OS X or PowerShell on Windows navigate to the top directory that this repo was cloned to (YourPath/HairSalon.Solution) and run terminal commands:_ 
-* _$ dotnet restore ./HairSalon.Tests_
+* _Using Terminal on OS X or PowerShell on Windows navigate to the directory that this repo was cloned to, then the Factory folder (YourPath/Factory.Solution/Factory) and run terminal commands (without the '$'):_ 
+* _$ dotnet ef migrations add Initial_
+* _$ dotnet ef database update_
+* _Making sure you've followed the MySqlWorkbench installation instructions, open MySql Workbench and select the Local 3306 server_
+* _Confirm the database [YOUR-DB-NAME] that you named was successfully created by clicking on the "Schemas" tab and seeing the schema listed._ 
 * _Then run the program with command :_
-* _$ dotnet run --project HairSalon_
+* _$ dotnet watch run_
 
 ## Known Bugs
 
@@ -73,4 +74,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) _12-23-22_ _Richard Cha_
+Copyright (c) _1-6-23_ _Richard Cha_

@@ -4,19 +4,21 @@
 
 @model Factory.Models.Machine
 
-<h2>Edit</h2>
-
-<h4>Editing @Html.DisplayFor(model => model.MachineName)</h4>
+<h2>Editing @Html.DisplayFor(model => model.MachineName)</h2>
+<hr />
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.MachineId)
 
-  @Html.LabelFor(model => model.MachineName) 
+  @Html.Label("Updated Machine Name") 
+  <br>
   @Html.EditorFor(model => model.MachineName)
   <p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger" })</p> 
 
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<a href='@Url.Action("Index")'>
+    <button type="button">Back to List</button>
+</a>

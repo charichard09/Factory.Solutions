@@ -5,10 +5,13 @@
 @model Factory.Models.Machine
 
 
-<h1>Add a new machine</h1>
+<h2>Add a new machine</h2>
+<hr />
+
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.MachineName)
+  @Html.Label("Machine Name")
+  <br>
   @Html.TextBoxFor(model => model.MachineName)
   <p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger" })</p> 
 
