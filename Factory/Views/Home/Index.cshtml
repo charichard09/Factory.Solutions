@@ -2,8 +2,43 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models
+
 <h1>Dr. Sillystringz's Factory</h1>
 
-<h4>Engineers</h4> 
+<hr />
+<h4>Engineers</h4>
+@if (Model["engineers"].Length == 0)
+{
+  <p>No engineers have been added yet!</p>
+} 
+else
+{
+  <ul>
+    @foreach (Engineer engineer in @Model["engineers"])
+    {
+      <li>
+        @Html.ActionLink(@engineer.EngineerName, "Details", "Engineers", new { id = @engineer.EngineerId })
+      </li>
+    }
+  </ul>
+}
 
-<h4>Machines</4>
+<h4>Machines</h4>
+@if (Model["machines"].Length == 0)
+{
+  <p>No machines have been added yet!</p>
+} 
+else
+{
+  <ul>
+    @foreach (Machine machine in @Model["machines"])
+    {
+      <li>
+        @Html.ActionLink(@machine.MachineName, "Details", "Machines", new { id = @machine.MachineId })
+      </li>
+    }
+  </ul>
+}
+
+<hr />
