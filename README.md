@@ -17,8 +17,8 @@
 
 ## Description
 
-_This web application gives CRUD functionality to both employees and machines while updating to a database. It will then display all employees and machines on the homepage. It can also assign _
-_each employee a machine and a machine an employee through a many to many relationship._
+_This web application gives Create, Read, Update, and Delete functionality to both employees and machines in a factory, updating everything to a database. It will then display all employees and machines on the homepage. It can also assign
+each employee a machine and a machine an employee through a many to many relationship._
 
 ## Setup/Installation Requirements
 
@@ -38,8 +38,7 @@ _each employee a machine and a machine an employee through a many to many relati
 ```
 replace [YOUR-USERNAME-HERE] and [YOUR-PASSWORD-HERE] with the your own user and password values, and [YOUR-DB-NAME] with any name you'd like to call the database, i.e. "factory"_
 
-* _Using Terminal on OS X or PowerShell on Windows navigate to the directory that this repo was cloned to, then the Factory folder (YourPath/Factory.Solution/Factory) and run terminal commands (without the '$'):_ 
-* _$ dotnet ef migrations add Initial_
+* _Using Terminal on OS X or PowerShell on Windows navigate to the directory that this repo was cloned to, then the Factory folder (YourPath/Factory.Solution/Factory) and run the terminal commands (without the '$'):_ 
 * _$ dotnet ef database update_
 * _Making sure you've followed the MySqlWorkbench installation instructions, open MySql Workbench and select the Local 3306 server_
 * _Confirm the database [YOUR-DB-NAME] that you named was successfully created by clicking on the "Schemas" tab and seeing the schema listed._ 
